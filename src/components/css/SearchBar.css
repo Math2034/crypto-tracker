@@ -1,0 +1,76 @@
+/* SearchBar.css */
+
+.searchbar-wrapper {
+  position: relative;        /* necessário pro ícone e botão ficarem "dentro" */
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  transition: border-color 0.2s;
+}
+
+/* Quando o wrapper tiver um input em foco dentro dele */
+.searchbar-wrapper:focus-within {
+  border-color: var(--green-dim);
+  box-shadow: 0 0 0 1px rgba(0, 255, 136, 0.1), /* borda extra sutil de néon */
+              0 0 20px rgba(0, 255, 136, 0.05);
+}
+
+/* Ícone de busca decorativo */
+.searchbar-icon {
+  padding: 0 16px;
+  color: var(--text-muted);
+  font-size: 1.3rem;
+  pointer-events: none;      /* não interfere em cliques */
+  user-select: none;
+}
+
+/* O input de texto em si */
+.searchbar-input {
+  flex: 1;                   /* ocupa todo o espaço disponível */
+  background: transparent;   /* herda o fundo do wrapper */
+  border: none;              /* sem borda própria, a borda é do wrapper */
+  outline: none;             /* remove a borda azul padrão do navegador */
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  padding: 16px 0;
+}
+
+.searchbar-input::placeholder {
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+}
+
+/* Botão de limpar */
+.searchbar-clear {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 16px;
+  font-size: 0.75rem;
+  transition: color 0.2s;
+  font-family: var(--font-mono);
+}
+
+.searchbar-clear:hover {
+  color: var(--red);
+}
+
+/* Texto "FILTRANDO..." que aparece enquanto busca */
+.searchbar-hint {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  padding-right: 16px;
+  white-space: nowrap;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}

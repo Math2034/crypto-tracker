@@ -1,0 +1,235 @@
+/* CryptoModal.css */
+
+/* ── OVERLAY (darkened background) ────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;           /* stays fixed on screen even when scrolling */
+  inset: 0;                  /* shorthand for top/right/bottom/left: 0 */
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px); /* blurs content behind */
+  z-index: 1000;             /* sits in front of everything */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: overlayIn 0.2s ease;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── MODAL WINDOW ───────────────────────────────────────────────────────────── */
+.modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+  animation: modalIn 0.25s ease;
+  /* Shadow with green glow to reinforce the neon aesthetic */
+  box-shadow: 0 0 60px rgba(0, 255, 136, 0.05), 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── CABEÇALHO DO MODAL ─────────────────────────────────────────────────────── */
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+
+.modal-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.modal-subtitle {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+.modal-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.modal-price {
+  font-size: 1.4rem;
+  color: var(--green);
+  letter-spacing: 0.02em;
+}
+
+.modal-period-change {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+.modal-period-change.up   { color: var(--green); }
+.modal-period-change.down { color: var(--red); }
+
+/* Botão fechar */
+.modal-close {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.modal-close:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+/* ── SELETOR DE PERÍODO ─────────────────────────────────────────────────────── */
+.period-selector {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.period-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.period-btn:hover {
+  border-color: var(--green-dim);
+  color: var(--green-dim);
+}
+
+/* Botão do período selecionado */
+.period-btn.active {
+  background: var(--green-muted);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* ── GRÁFICO ────────────────────────────────────────────────────────────────── */
+.chart-container {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+/* O SVG preenche o container inteiro */
+.chart-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.chart-loading {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--green);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+}
+
+/* ── INFO DO HOVER ──────────────────────────────────────────────────────────── */
+.hover-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  border-top: 1px solid var(--border);
+  margin-top: 4px;
+  min-height: 36px;
+}
+
+.hover-price {
+  color: var(--green);
+  font-size: 0.9rem;
+}
+
+/* ── RODAPÉ COM STATS ───────────────────────────────────────────────────────── */
+.modal-footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  border: 1px solid var(--border);
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.footer-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  background: var(--bg-secondary);
+}
+
+.footer-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+}
+
+.footer-value {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.footer-value.up   { color: var(--green); }
+.footer-value.down { color: var(--red); }
+
+/* ── RESPONSIVIDADE ─────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .modal { padding: 20px 16px; }
+  .modal-footer { grid-template-columns: repeat(2, 1fr); }
+  .modal-price  { font-size: 1.1rem; }
+}

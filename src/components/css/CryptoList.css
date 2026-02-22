@@ -1,0 +1,70 @@
+/* CryptoList.css */
+
+.crypto-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;                  /* minimal gap between cards, dense table style */
+}
+
+/* ── COLUMN HEADERS ─────────────────────────────────────────────────────────── */
+.list-header {
+  display: grid;
+  /* Fixed columns for small ones, flexible for name, fixed for the rest */
+  grid-template-columns: 40px 1fr 140px 90px 160px 140px;
+  gap: 12px;
+  padding: 8px 16px;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+
+.col-price, .col-change, .col-cap, .col-vol {
+  text-align: right;         /* numbers right-aligned (standard in finance) */
+}
+
+/* ── EMPTY STATE (no results) ────────────────────────────────────────────────── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 80px 20px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 2rem;
+  color: var(--text-dim);
+}
+
+.empty-state p {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+}
+
+.empty-sub {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────────────────── */
+/* On smaller screens, hide less important columns */
+@media (max-width: 900px) {
+  .list-header {
+    grid-template-columns: 40px 1fr 120px 80px;
+  }
+  .col-cap, .col-vol {
+    display: none;           /* hide market cap and volume on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .list-header {
+    grid-template-columns: 36px 1fr 110px 70px;
+  }
+}

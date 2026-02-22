@@ -1,0 +1,138 @@
+/* CryptoCard.css */
+
+.crypto-card {
+  display: grid;
+  /* Same column structure as list-header so everything lines up perfectly */
+  grid-template-columns: 40px 1fr 140px 90px 160px 140px;
+  gap: 12px;
+  padding: 12px 16px;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid transparent;     /* invisible border that appears on hover */
+  cursor: pointer;
+  transition: all 0.15s ease;
+  /* Entrance animation: each card appears with a slight delay */
+  animation: slideIn 0.3s ease both;
+}
+
+/* Staggered delay to create a cascade entrance effect */
+/* nth-child = selects the nth child element */
+.crypto-card:nth-child(1)  { animation-delay: 0.02s; }
+.crypto-card:nth-child(2)  { animation-delay: 0.04s; }
+.crypto-card:nth-child(3)  { animation-delay: 0.06s; }
+.crypto-card:nth-child(4)  { animation-delay: 0.08s; }
+.crypto-card:nth-child(5)  { animation-delay: 0.10s; }
+.crypto-card:nth-child(6)  { animation-delay: 0.12s; }
+.crypto-card:nth-child(7)  { animation-delay: 0.14s; }
+.crypto-card:nth-child(8)  { animation-delay: 0.16s; }
+.crypto-card:nth-child(9)  { animation-delay: 0.18s; }
+.crypto-card:nth-child(10) { animation-delay: 0.20s; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Hover state: highlights the card and shows the green border */
+.crypto-card:hover {
+  background: #152019;
+  border-color: var(--border-bright);
+  /* Left accent stripe on hover */
+  box-shadow: inset 3px 0 0 var(--green);
+}
+
+/* Keyboard focus (accessibility) */
+.crypto-card:focus-visible {
+  outline: 1px solid var(--green);
+  outline-offset: -1px;
+}
+
+/* ── RANK ───────────────────────────────────────────────────────────────────── */
+.card-rank {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+
+/* ── NAME + ICON ────────────────────────────────────────────────────────────── */
+.card-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;              /* allows text to be truncated with ellipsis */
+}
+
+.card-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;        /* makes the icon circular */
+  flex-shrink: 0;            /* prevents the icon from shrinking */
+}
+
+.card-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.card-symbol {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+}
+
+.card-fullname {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  /* Truncates text with "..." if it's too long */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── PRICE ──────────────────────────────────────────────────────────────────── */
+.card-price {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  text-align: right;
+  letter-spacing: 0.02em;
+}
+
+/* ── 24H CHANGE ─────────────────────────────────────────────────────────────── */
+.card-change {
+  font-size: 0.8rem;
+  text-align: right;
+  letter-spacing: 0.03em;
+  font-weight: bold;
+}
+
+.card-change.positive { color: var(--green); }
+.card-change.negative { color: var(--red); }
+
+/* ── MARKET CAP & VOLUME ────────────────────────────────────────────────────── */
+.card-cap,
+.card-vol {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: right;
+  letter-spacing: 0.02em;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .crypto-card {
+    grid-template-columns: 40px 1fr 120px 80px;
+  }
+  .card-cap, .card-vol { display: none; }
+}
+
+@media (max-width: 600px) {
+  .crypto-card {
+    grid-template-columns: 36px 1fr 110px 70px;
+    padding: 10px 12px;
+  }
+  .card-fullname { display: none; }
+}
