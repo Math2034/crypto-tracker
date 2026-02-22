@@ -2,7 +2,7 @@
 
 A real-time cryptocurrency tracker with price charts and live market data, built with React and zero paid APIs.
 
-🔗 **Live Demo** 👉 *(coming soon)*
+🔗 **Live Demo** 👉 **https://cryptotracker-three-livid.vercel.app**
 
 ---
 
