@@ -4,7 +4,13 @@ A real-time cryptocurrency tracker with price charts and live market data, built
 
 🔗 **Live Demo** 👉 *(coming soon)*
 
-> 📸 *Screenshots coming soon*
+---
+
+## 📸 Screenshots
+
+![Home](src/assets/img/Image1.png)
+![Search](src/assets/img/Image2.png)
+![Chart](src/assets/img/Image3.png)
 
 ---
 
@@ -51,6 +57,11 @@ crypto-tracker/
 │
 ├── public/
 ├── src/
+│   ├── assets/
+│   │   └── img/
+│   │       ├── Image1.png
+│   │       ├── Image2.png
+│   │       └── Image3.png
 │   ├── components/
 │   │   ├── css/
 │   │   │   ├── Header.css
