@@ -103,7 +103,7 @@ npm run dev
 
 Then open `http://localhost:5173` in your browser.
 
-> **Note:** The app uses the [CoinGecko Free API](https://www.coingecko.com/en/api). No API key needed, but the free tier has rate limits — if the chart fails to load, wait a moment and try again.
+> **Note:** The app uses the [CoinGecko Free API](https://www.coingecko.com/en/api). No API key needed, but the free tier has rate limits, if the chart fails to load, wait a moment and try again.
 
 ---
 
