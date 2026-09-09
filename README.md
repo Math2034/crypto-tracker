@@ -120,7 +120,7 @@ Then open `http://localhost:5173` in your browser.
 ## 👤 Author
 
 **Matheus Ramos**
-Front-End Developer (Junior Level)
-Based in Australia
+IT student building practical front-end projects
+Based in Perth, Australia
 
 GitHub: [https://github.com/Math2034](https://github.com/Math2034)
